@@ -1,0 +1,44 @@
+[tool.commitizen]
+name = "cz_customize"
+version = "5.0.0"
+tag_format = "$version"
+bump_message = "Release: version $current_version → $new_version"
+version_files = [
+ "pipeline-config.json:version",
+ "deployment.yaml:sampleApp-Java",
+ "Dockerfile:rest-example-",
+ "pom.xml:<version>"
+]
+
+
+[tool.commitizen.customize]
+message_template = "{{change_type}}:{% if jira_issue_id %}[{{jira_issue_id}}]{% endif %}{% if time_spent %}({{time_spent}}){% endif %}{% if message %}{{message}}{% endif %}"
+example = "feature: This feature enable customize through config file"
+bump_pattern = "^(Breaking Change|New Feature|Fix|HotFix|Improvement|Docs|No Impact)"
+bump_map = {"Breaking Change" = "MAJOR", "New Feature" = "MINOR", "Fix" = "PATCH", "HotFix" = "PATCH", "Improvement"="PATCH","Doc"="","No Impact"=""}
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "change_type"
+choices = [
+{value = "No Impact", name = "No Impact -> has done some styles, formatting etc. [No Ver]."},
+{value = "Doc", name = "Doc -> Documentation changes only [No Ver]."},
+{value = "Improvement", name = "Improvement -> has some improvement in existing feature [PATCH]."},
+{value = "Fix", name = "Fix -> has some bug fix [PATCH]."},{value = "HotFix", name = "HotFix -> has hotfix for bug [PATCH]."},
+{value = "New Feature", name = "New Feature -> added some new functionalities [MINOR]."},
+{value = "Breaking Change", name = "Breaking Change -> Implemented some breaking changes [MAJOR]."}]
+message = "Commit Type:"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "message"
+message = "Git commit message (required):"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "jira_issue_id"
+message = "Jira Issue ID(s) separated by spaces (required):"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "time_spent"
+message = "Time spent (i.e. 3h 15m) (required):"
