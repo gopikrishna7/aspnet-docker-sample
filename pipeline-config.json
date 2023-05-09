@@ -1,0 +1,31 @@
+{
+  "appName":"sample-dotnet",
+  "version":"1.0.0",
+  "versionMgmt": {
+     "useCZ":true,
+     "fromSource":false,
+     "bumpVersion":true 
+  },
+  "appBuild": {
+     "framework": "dotnet",
+     "devBuild": true,
+     "prodBuild": "",
+     "runTests": false,
+     "pushBinary": false,
+     "binaryRepository":"",
+     "buildCmd": ""
+  },
+  "deployment": {
+     "ciDeploy": false,
+     "environment": "dev",
+     "release": false,
+     "container": true,
+     "containerRegistry": "registry-demo.kaiburr.com",
+     "containerRepo": "sample",
+     "registryCredentialsId": "",
+     "useHelm": true,
+     "helmChartPath": "helm-chart",
+     "gitOps": true,
+     "gitOpsHost": ""
+  }
+}
