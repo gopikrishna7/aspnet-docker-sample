@@ -2,9 +2,9 @@
   "appName":"sample-dotnet",
   "version":"1.0.0",
   "versionMgmt": {
-     "useCZ":true,
-     "fromSource":false,
-     "bumpVersion":true 
+     "useCZ":false,
+     "fromSource":true,
+     "bumpVersion":false 
   },
   "appBuild": {
      "framework": "",
