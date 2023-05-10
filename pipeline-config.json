@@ -19,7 +19,7 @@
      "ciDeploy": false,
      "environment": "dev",
      "release": false,
-     "container": false,
+     "container": true,
      "containerRegistry": "registry-demo.kaiburr.com",
      "containerRepo": "sample",
      "registryCredentialsId": "",
