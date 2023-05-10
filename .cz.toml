@@ -5,6 +5,9 @@ tag_format = "$version"
 bump_message = "Release: version $current_version → $new_version"
 version_files = [
  "pipeline-config.json:version",
+ "deployment.yaml:sampleApp-Java",
+ "Dockerfile:rest-example-",
+ "pom.xml:<version>"
 ]
 
 
